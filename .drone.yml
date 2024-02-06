@@ -1,0 +1,31 @@
+
+kind: pipeline
+type: docker
+name: CD
+
+trigger :
+    event:
+        - push
+
+steps:
+    - name: verif-dockerfile
+      image: hadolint/hadolint:latest-alpine
+      commands:
+        - hadolint Dockerfile
+
+    - name: build-image
+      image: plugins/docker
+      settings:
+        dockerfile: Dockerfile
+        context: .
+        registry: hub.codefirst.iut.uca.fr
+        repo: hub.codefirst.iut.uca.fr/hugo.livet/database-athletix
+        username:
+          from_secret: secret-registry-username
+        password:
+          from_secret: secret-registry-password
+      depends_on: [ verif-dockerfile ]
+    
+
+
+
