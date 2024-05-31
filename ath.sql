@@ -195,6 +195,7 @@ CREATE TABLE "Sets" (
     "WeightJson" text NOT NULL,
     "Rest" interval NOT NULL,
     "Mode" integer NOT NULL,
+    "IsDone" boolean NOT NULL,
     CONSTRAINT "PK_Sets" PRIMARY KEY ("Id"),
     CONSTRAINT "FK_Sets_PracticalExercises_ExerciseId" FOREIGN KEY ("ExerciseId") REFERENCES "PracticalExercises" ("Id") ON DELETE CASCADE
 );
@@ -250,7 +251,7 @@ CREATE INDEX "IX_Sessions_ProfileId" ON "Sessions" ("ProfileId");
 CREATE INDEX "IX_Sets_ExerciseId" ON "Sets" ("ExerciseId");
 
 INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
-VALUES ('20240530181709_Ath-v2', '8.0.5');
+VALUES ('20240531091737_Ath-v2', '8.0.5');
 
 COMMIT;
 
