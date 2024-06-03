@@ -251,7 +251,6 @@ CREATE INDEX "IX_Sessions_ProfileId" ON "Sessions" ("ProfileId");
 CREATE INDEX "IX_Sets_ExerciseId" ON "Sets" ("ExerciseId");
 
 INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
-VALUES ('20240531091737_Ath-v2', '8.0.5');
+VALUES ('20240603093244_Ath-v2', '8.0.5');
 
 COMMIT;
-
