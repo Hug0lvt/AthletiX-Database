@@ -153,6 +153,7 @@ CREATE TABLE "Sessions" (
     "Name" text NOT NULL,
     "Date" timestamp with time zone NOT NULL,
     "Duration" interval NOT NULL,
+    "Status" integer NOT NULL,
     CONSTRAINT "PK_Sessions" PRIMARY KEY ("Id"),
     CONSTRAINT "FK_Sessions_Profiles_ProfileId" FOREIGN KEY ("ProfileId") REFERENCES "Profiles" ("Id") ON DELETE CASCADE
 );
@@ -264,6 +265,6 @@ CREATE INDEX "IX_Sessions_ProfileId" ON "Sessions" ("ProfileId");
 CREATE INDEX "IX_Sets_ExerciseId" ON "Sets" ("ExerciseId");
 
 INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
-VALUES ('20240606205900_Ath-Auth', '8.0.5');
+VALUES ('20240607101518_Ath-Auth', '8.0.5');
 
 COMMIT;
