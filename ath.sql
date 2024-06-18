@@ -142,6 +142,7 @@ CREATE TABLE "Posts" (
     "Description" text NOT NULL,
     "PublicationType" integer NOT NULL,
     "Content" text NOT NULL,
+    "Thumbnail" text NOT NULL,
     CONSTRAINT "PK_Posts" PRIMARY KEY ("Id"),
     CONSTRAINT "FK_Posts_Categories_CategoryId" FOREIGN KEY ("CategoryId") REFERENCES "Categories" ("Id") ON DELETE CASCADE,
     CONSTRAINT "FK_Posts_Profiles_ProfileId" FOREIGN KEY ("ProfileId") REFERENCES "Profiles" ("Id") ON DELETE CASCADE
@@ -265,6 +266,6 @@ CREATE INDEX "IX_Sessions_ProfileId" ON "Sessions" ("ProfileId");
 CREATE INDEX "IX_Sets_PracticalExerciseId" ON "Sets" ("PracticalExerciseId");
 
 INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
-VALUES ('20240607105328_Ath-Auth', '8.0.5');
+VALUES ('20240618063941_Ath-v2', '8.0.5');
 
 COMMIT;
